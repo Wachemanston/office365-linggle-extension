@@ -68,3 +68,6 @@ target/
 
 # sqlite
 *.sqlite3
+
+# staticfiles
+staticfiles/
