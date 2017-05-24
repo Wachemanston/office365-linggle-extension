@@ -7,6 +7,7 @@ import urllib
 API_URL = 'http://lost.nlpweb.org:8745?search={}'
 API_URL2 = 'http://lost.nlpweb.org:3440/api/mix/{}'
 
+
 def index(request):
     return render(request, 'index/index.html')
 
@@ -24,6 +25,7 @@ def itri(request):
 def linggleit(request, query):
     r = requests.get(API_URL.format(query))
     return HttpResponse(content=r.text, status=r.status_code)
+
 
 def getexample(request, query):
     r = requests.get(API_URL2.format(query))
