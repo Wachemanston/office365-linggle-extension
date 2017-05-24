@@ -1,0 +1,34 @@
+.linggle.help-modal .modal-body {
+  padding-right: 50px;
+}
+
+.linggle.help-modal .modal-body li {
+  font-size: 1.1em;
+  line-height: 2em;
+}
+
+.linggle.help-modal .modal-body li.divider {
+  height: 1px;
+  margin-top: 17px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px dashed #e5e5e5;
+}
+
+.linggle.help-modal .label {
+  font-size: 0.9em;
+}
+
+.linggle.help-modal .label .highlight {
+  color: #cc0000;
+}
+
+.linggle.help-modal .label-red {
+  background: #cc0000;
+}
+
+.linggle.help-modal .label-gray {
+  background: #e5e5e5;
+  color: black;
+  font-weight: normal;
+}

@@ -1,0 +1,119 @@
+<!-- help modal -->
+<div class="linggle help-modal modal fade" id="linggle-help-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Linggle 小教學</h4>
+      </div>
+      <!-- body (main content) -->
+      <div class="modal-body">
+        <ul>
+          <li>
+            使用 <span class="label label-default label-red">* (星號)</span>
+            查詢任意零到多個詞，
+            例如
+            <span class="label label-default label-gray">
+              play * role
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray">play <span class="highlight">a</span> role</span>
+            及
+            <span class="label label-default label-gray">play <span class="highlight">an important</span> role</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            使用 <span class="label label-default label-red">_ (底線)</span>
+            查詢任意一個詞，
+            例如
+            <span class="label label-default label-gray">
+              listen _ music
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray">listen <span class="highlight">to</span> music</span>
+          </li>
+          <!-- <li class="divider"></li>
+          <li>
+            使用 <span class="label label-default label-red">~TERM (波浪號後面接任意一個詞)</span>
+            查詢同義詞，
+            例如
+            <span class="label label-default label-gray">
+              ~reliable person
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray"><span class="highlight">trustworthy</span> person</span>
+          </li> -->
+          <li class="divider"></li>
+          <li>
+            使用 <span class="label label-default label-red">?TERM (問號後面接任意一個詞)</span>
+            查詢是否需要特定詞，
+            例如
+            <span class="label label-default label-gray">
+              listen ?to music
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray">listen <span class="highlight">to</span> music</span>
+            <br>
+            除此之外，你也可以指定 TERM 的詞性 (請詳看 "POS")，例如
+            <span class="label label-default label-gray">
+              discuss ?prep. it
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray">discuss it</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            使用 <span class="label label-default label-red">TERM1/TERM2 (斜線)</span>
+            查詢何者較佳，
+            例如
+            <span class="label label-default label-gray">
+              go in/to school
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray">go <span class="highlight">to</span> school</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            使用 <span class="label label-default label-red">POS (Part Of Speech; 詞性)</span>
+            查詢任意詞 (差別在可以指定詞性)，
+            例如
+            <span class="label label-default label-gray">
+              v. a report
+            </span>
+            ，其結果為
+            <span class="label label-default label-gray"><span class="highlight">submit</span> a report</span>
+            <br>
+            POS 可以為
+            <span class="label label-default label-gray">v. (動詞)</span>
+            <span class="label label-default label-gray">n. (名詞)</span>
+            <span class="label label-default label-gray">adj. (形容詞)</span>
+            <span class="label label-default label-gray">prep. (介系詞)</span>
+            <span class="label label-default label-gray">det. (冠詞)</span>
+            <span class="label label-default label-gray">conj. (連接詞)</span>
+            <span class="label label-default label-gray">pron. (代名詞)</span>
+            <br>
+            <span>別忘了每個 POS 後面別忘了加上點 "."</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <span class="label label-default label-warning">貼心小叮嚀：Linggle 最多只能查詢連續五個詞彙喔！</span>
+          </li>
+        </ul>
+      </div>
+      <!-- buttons -->
+      <div class="modal-footer">
+        <button type="button" class="linggle btn btn-green" data-dismiss="modal">
+          收到
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+        <!-- <button type="button" class="linggle btn btn-green">
+          還是不太懂耶，我要完整的導覽
+          <i class="fa fa-compass" aria-hidden="true"></i>
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

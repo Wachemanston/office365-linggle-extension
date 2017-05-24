@@ -1,0 +1,10 @@
+.linggle .carousel {
+  background-image: url(/static/img/carousel-bg.png);
+  background-color: #990000;
+  padding: 25px 0 25px 0;
+}
+
+.linggle .carousel .carousel-inner > .item > img,
+.linggle .carousel .carousel-inner > .item > a > img {
+  margin: auto;
+}

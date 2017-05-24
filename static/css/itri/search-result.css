@@ -1,0 +1,51 @@
+.linggle.search-result {
+  /* when search-bar not being focused, this is further controlled by jquery in itri/main.js */
+  display: none;
+}
+
+.linggle.search-result .container {
+  width: 100%;
+  padding: 25px 3.5% 25px 3.5%;
+  margin: 0;
+}
+
+.linggle.search-result table thead tr th {
+  color: #cbcbcb;
+  border-bottom: 0;
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+.linggle.search-result table tbody tr td {
+  border: 0;
+  font-size: 1.2em;
+}
+
+.linggle.search-result table tbody tr td.ngram {
+  padding-right: 50px;
+}
+
+/* align center visually vertically with ngram column */
+.linggle.search-result table tbody tr td.percent,
+.linggle.search-result table tbody tr td.count,
+.linggle.search-result table tbody tr td.example {
+  vertical-align: middle;
+}
+
+.linggle.search-result .progress {
+  height: 5px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  border: 0;
+  background: #ededed;
+  box-shadow: none;
+}
+
+.linggle.search-result .progress-bar {
+  background: #cc0000;
+  box-shadow: none;
+}
+
+.linggle.search-result .examples span.highlight {
+  color: #cc0000;
+}
