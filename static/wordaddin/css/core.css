@@ -1,0 +1,94 @@
+/* remove bootstrap default blue outline */
+.linggle.btn:focus {
+   outline: none !important;
+}
+
+/* main btn */
+.linggle.btn-main {
+  background-color: #cc0000;
+  border-color: #cc0000;
+}
+.linggle.btn-main:hover,
+.linggle.btn-main:focus,
+.linggle.btn-main:active,
+.linggle.btn-main.active {
+  background-color: #b30000;
+  border-color: #990000;
+}
+.linggle.btn-main.disabled:hover,
+.linggle.btn-main.disabled:focus,
+.linggle.btn-main.disabled:active,
+.linggle.btn-main.disabled.active,
+.linggle.btn-main[disabled]:hover,
+.linggle.btn-main[disabled]:focus,
+.linggle.btn-main[disabled]:active,
+.linggle.btn-main[disabled].active,
+fieldset[disabled] .linggle.btn-main:hover,
+fieldset[disabled] .linggle.btn-main:focus,
+fieldset[disabled] .linggle.btn-main:active,
+fieldset[disabled] .linggle.btn-main.active {
+  background-color: #cc0000;
+  border-color: #cc0000;
+}
+.linggle.btn-main i {
+  color: white;
+}
+
+/* white btn */
+.linggle.btn-white {
+  background-color: #ffffff;
+  border-color: #cbcbcb;
+}
+.linggle.btn-white:hover,
+.linggle.btn-white:focus,
+.linggle.btn-white:active,
+.linggle.btn-white.active {
+  background-color: #f2f2f2;
+  border-color: #cbcbcb;
+}
+.linggle.btn-white.disabled:hover,
+.linggle.btn-white.disabled:focus,
+.linggle.btn-white.disabled:active,
+.linggle.btn-white.disabled.active,
+.linggle.btn-white[disabled]:hover,
+.linggle.btn-white[disabled]:focus,
+.linggle.btn-white[disabled]:active,
+.linggle.btn-white[disabled].active,
+fieldset[disabled] .linggle.btn-white:hover,
+fieldset[disabled] .linggle.btn-white:focus,
+fieldset[disabled] .linggle.btn-white:active,
+fieldset[disabled] .linggle.btn-white.active {
+  background-color: #ffffff;
+  border-color: #cbcbcb;
+}
+
+/* green btn */
+.linggle.btn-green {
+  background-color: #25A172;
+  border-color: #25A172;
+  color: white;
+}
+.linggle.btn-green:hover,
+.linggle.btn-green:focus,
+.linggle.btn-green:active,
+.linggle.btn-green.active {
+  background-color: #208c63;
+  border-color: #1b7855;
+  color: white;
+}
+.linggle.btn-green.disabled:hover,
+.linggle.btn-green.disabled:focus,
+.linggle.btn-green.disabled:active,
+.linggle.btn-green.disabled.active,
+.linggle.btn-green[disabled]:hover,
+.linggle.btn-green[disabled]:focus,
+.linggle.btn-green[disabled]:active,
+.linggle.btn-green[disabled].active,
+fieldset[disabled] .linggle.btn-green:hover,
+fieldset[disabled] .linggle.btn-green:focus,
+fieldset[disabled] .linggle.btn-green:active,
+fieldset[disabled] .linggle.btn-green.active {
+  background-color: #25A172;
+  border-color: #25A172;
+  color: white;
+}
