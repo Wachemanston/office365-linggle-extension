@@ -13,14 +13,10 @@
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
 
-    <!-- LOCAL -->
-    <link rel="stylesheet" href="{% static 'wordaddin/office-ui-fabric-js/dist/css/fabric.min.css' %}">
-    <link rel="stylesheet" href="{% static 'wordaddin/office-ui-fabric-js/dist/css/fabric.components.css' %}">
-
     <!-- CDN -->
     <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
-    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />-->
-    <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />-->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
     <!-- bootstrap optional theme -->
@@ -59,28 +55,26 @@
     </div>
   </nav>
   <div id="f"></div>
-<!-- NAV -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <!-- search result template -->
-      <div class="linggle search-result">
-
+  <!-- NAV -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- search result template -->
+        <div class="linggle search-result"></div>
       </div>
-
     </div>
-    <div>
+  </div>
 
-    <script type="text/javascript" src="{% static 'js/wordaddin/core-js/client/core.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/office-ui-fabric-js/dist/js/fabric.js' %}"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/search-result.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/search-bar.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/spinner.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/main.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/wordaddin/app.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js" integrity="sha256-LIvc6/vkyvh3J7PFZELcQaeQrICgccTWc3Ty+b2eK0M=" crossorigin="anonymous"></script>
+  <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/js/fabric.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/wordaddin/search-result.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wordaddin/search-bar.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wordaddin/spinner.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wordaddin/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/wordaddin/app.js' %}"></script>
 
 </body>
 
