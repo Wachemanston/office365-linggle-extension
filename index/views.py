@@ -16,6 +16,10 @@ def itri(request):
     return render(request, 'itri/index.html')
 
 
+def wordaddin(request):
+    return render(request, 'wordaddin/index.html')
+
+
 # def linggleit(request, query):
 #     url = 'http://linggle.com/query/{}'.format(urllib.quote(query, safe=''))
 #     r = requests.get(url)

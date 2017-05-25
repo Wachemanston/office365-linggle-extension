@@ -10,7 +10,7 @@
 
 .linggle.navbar .navbar-brand {
   width: 300px;
-  background: url(../img/linggle-logo.png) center / contain no-repeat;
+  background: url(/static/img/linggle-logo.png) center / contain no-repeat;
 }
 
 .linggle.navbar .navbar-form input {

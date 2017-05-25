@@ -17,14 +17,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from index.views import index
-from index.views import itri
-from index.views import linggleit
-from index.views import getexample
+from index.views import itri, wordaddin
+from index.views import linggleit, getexample
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', itri),
     url(r'^itri/', itri),
+    url(r'^wordaddin/', wordaddin),
     url(r'^query/(?P<query>.+)', linggleit),
     url(r'^example/(?P<query>.+)', getexample)
 ]

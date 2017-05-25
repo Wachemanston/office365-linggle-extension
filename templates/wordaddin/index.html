@@ -1,6 +1,4 @@
-<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
-<!-- See LICENSE in the project root for license information -->
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -14,8 +12,8 @@
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
 
     <!-- LOCAL -->
-    <link rel="stylesheet" href="office-ui-fabric-js/dist/css/fabric.min.css" />
-    <link rel="stylesheet" href="office-ui-fabric-js/dist/css/fabric.components.css" />
+    <link rel="stylesheet" href="{% static 'wordaddin/office-ui-fabric-js/dist/css/fabric.min.css' %}">
+    <link rel="stylesheet" href="{% static 'wordaddin/office-ui-fabric-js/dist/css/fabric.components.css' %}">
 
     <!-- CDN -->
     <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
@@ -28,10 +26,10 @@
     <!-- font awesome -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- Template styles -->
-    <link href="css/core.css" rel="stylesheet" type="text/css" />
-    <link href="css/navbar.css" rel="stylesheet" type="text/css" />
-    <link href="css/search-result.css" rel="stylesheet" type="text/css" />
-    <link href="app.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'wordaddin/css/core.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'wordaddin/css/navbar.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'wordaddin/css/search-result.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'wordaddin/app.css' %}" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -71,16 +69,16 @@
     </div>
     <div>
 
-    <script type="text/javascript" src="core-js/client/core.js"></script>
-    <script type="text/javascript" src="jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="office-ui-fabric-js/dist/js/fabric.js"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/core-js/client/core.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/jquery/dist/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/office-ui-fabric-js/dist/js/fabric.js' %}"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/search-result.js"></script>
-    <script type="text/javascript" src="js/search-bar.js"></script>
-    <script type="text/javascript" src="js/spinner.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/js/search-result.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/js/search-bar.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/js/spinner.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'wordaddin/app.js' %}"></script>
 
 </body>
 
