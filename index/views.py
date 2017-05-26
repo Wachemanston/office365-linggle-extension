@@ -20,6 +20,9 @@ def wordaddin(request):
     return render(request, 'wordaddin/index.html')
 
 
+def emailpro(request):
+    return render(request, 'emailpro/index.html')
+
 # def linggleit(request, query):
 #     url = 'http://linggle.com/query/{}'.format(urllib.quote(query, safe=''))
 #     r = requests.get(url)

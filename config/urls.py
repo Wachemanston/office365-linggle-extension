@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from index.views import index
-from index.views import itri, wordaddin
+from index.views import itri, wordaddin, emailpro
 from index.views import linggleit, getexample
 
 urlpatterns = [
@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', itri),
     url(r'^itri/', itri),
     url(r'^wordaddin/', wordaddin),
+    url(r'^emailpro/', emailpro),
     url(r'^query/(?P<query>.+)', linggleit),
     url(r'^example/(?P<query>.+)', getexample)
 ]
