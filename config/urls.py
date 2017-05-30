@@ -16,7 +16,6 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from index.views import index
 from index.views import itri, wordaddin, emailpro
 from index.views import linggleit, getexample
 
