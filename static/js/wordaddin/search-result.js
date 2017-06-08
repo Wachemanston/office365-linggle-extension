@@ -2,7 +2,7 @@ var SearchResult = {
   query: function(query) {
     $.ajax({
       //url: 'https://linggle-addin.herokuapp.com/query/' + query,
-      url: 'https://lost.nlpweb.org:9488/?search=' + query,
+      url: 'https://ironman.nlpweb.org:9488/?search=' + query,
       type: 'GET',
       dataType: 'json'
     }).done(this.renderSearchResult).fail(this.renderSearchFail);
