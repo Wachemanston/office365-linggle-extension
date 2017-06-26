@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
-import re
 
 API_URL = 'http://ironman.nlpweb.org:8745?search={}'
 # API_URL = 'http://lost.nlpweb.org:8745?search={}'

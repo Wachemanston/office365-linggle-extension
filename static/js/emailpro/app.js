@@ -16,6 +16,9 @@
     });
   };
 
+  $(document).ready(function() {
+    query('welcome');
+  });
   function getText() {
     clearInterval(mainIntervalID);
     Office.context.document.getSelectedDataAsync("text", {},

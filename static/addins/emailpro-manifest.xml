@@ -9,7 +9,7 @@
   <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
 
   <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
-  <Id>d673f4ce-d81f-405d-9264-2be8e6972b90</Id>
+  <Id>431821ad-54bc-446c-963e-3e9bc84d2365</Id>
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
@@ -39,7 +39,7 @@
     <Host Name="Document" />
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://linggle-addin.herokuapp.com/emailpro/" />
+    <SourceLocation DefaultValue="https://linggle-addin.herokuapp.com/emailpro" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -124,7 +124,7 @@
         <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://linggle-addin.herokuapp.com/static/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="https://linggle-addin.herokuapp.com/emailpro/" />
+        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="https://linggle-addin.herokuapp.com/emailpro" />
         <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
         <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="https://linggle-addin.herokuapp.com/static/function-file/function-file.html" />
       </bt:Urls>
