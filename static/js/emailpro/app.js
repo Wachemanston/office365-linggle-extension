@@ -56,8 +56,8 @@
       data[i][0] = data[i][0].replace(data[0][0], data[0][1]);
       pattern = data[i][0].replace(/\</g, '').replace(/\>/g, '').replace('(', '<span class="ui text red">').replace(')', '</span>');
       count = data[i][2];
-      if (data[i][3].length != 4) {
-        examples = data[i][3].split('|');
+      if (data[i][1].length != 4) {
+        examples = data[i][1].split('|');
         for (var j = 0; j < examples.length; j++) {
           examples[j] = examples[j].replace(data[0][0], data[0][1]);
           examples[j] = examples[j].replace(/\(/g, '<span class="ui text red">').replace(/\)/g, '</span>');
@@ -98,9 +98,7 @@
   }
 
   function query(text) {
-    $.post("https://ironman.nlpweb.org:7070/query", {
-      text_field: text
-    }, 'json').
+    $.get("https://clhsu.pythonanywhere.com/get/" + text).
     done(function(data) {
       var suggestions = parseData(data);
       renderResults(suggestions);
