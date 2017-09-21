@@ -1,0 +1,112 @@
+<!-- help modal -->
+<div class="linggle help-modal modal fade" id="linggle-help-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!-- header -->
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Help</h4>
+      </div>
+      <!-- body (main content) -->
+      <div class="modal-body">
+        <ul>
+          <li>
+            Use <span class="label label-default label-red">*</span>
+            to match zero or more words, 
+            e.g.,
+            <span class="label label-default label-gray">
+              play <span class="highlight">*</span> role
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray">play <span class="highlight">a</span> role</span>
+            and
+            <span class="label label-default label-gray">play <span class="highlight">an important</span> role</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            Use <span class="label label-default label-red">_</span>
+            to match any word, 
+            e.g.,
+            <span class="label label-default label-gray">
+              listen <span class="highlight">_</span> music
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray">listen <span class="highlight">to</span> music</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            Use <span class="label label-default label-red">~WORD</span>
+            to search for the similar words of a WORD, 
+            e.g.,
+            <span class="label label-default label-gray">
+              <span class="highlight">~reliable</span> person
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray"><span class="highlight">trustworthy</span> person</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            Use <span class="label label-default label-red">?WORD</span>
+            to search for WORD optionally，
+            e.g.,
+            <span class="label label-default label-gray">
+              listen <span class="highlight">?to</span> music
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray">listen <span class="highlight">to</span> music</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            Use <span class="label label-default label-red">WORD1/WORD2 (slash)</span>
+            to choose either WORD1 or WORD2
+            e.g.,
+            <span class="label label-default label-gray">
+              go <span class="highlight">in/to</span> school
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray">go <span class="highlight">to</span> school</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            Use <span class="label label-default label-red">POS (Part of Speech)</span>
+            to search for word with specific pos tag,
+            e.g.,
+            <span class="label label-default label-gray">
+              <span class="highlight">v.</span> a report
+            </span>
+            &nbsp;->&nbsp;
+            <span class="label label-default label-gray"><span class="highlight">submit</span> a report</span>
+            <br>
+            POS can be:
+            <span class="label label-default label-gray">v. (verb)</span>
+            <span class="label label-default label-gray">n. (noun)</span>
+            <span class="label label-default label-gray">adj. (adjective)</span>
+            <span class="label label-default label-gray">prep. (preposition)</span>
+            <span class="label label-default label-gray">det. (determiner)</span>
+            <span class="label label-default label-gray">conj. (conjunction)</span>
+            <span class="label label-default label-gray">pron. (pronoun)</span>
+            <br>
+            <span>Remember to keep a dot(.) after each pos tag</span>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <span class="label label-default label-warning">Note: the maximum number of words in a query is 5</span>
+          </li>
+        </ul>
+      </div>
+      <!-- buttons -->
+      <div class="modal-footer">
+        <button type="button" class="linggle btn btn-white" data-dismiss="modal">
+          Got it!
+          <i class="fa fa-check" aria-hidden="true"></i>
+        </button>
+         <!-- <button type="button" class="linggle btn btn-green">
+          Interactive tutorial!
+          <i class="fa fa-compass" aria-hidden="true"></i>
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

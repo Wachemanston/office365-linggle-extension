@@ -1,0 +1,65 @@
+.linggle .intro-slides.container {
+  padding: 0 3.5% 3.5% 3.5%;
+}
+
+.linggle .intro-slides .row {
+  font-size: 1.3em;
+  line-height: 2em;
+  padding-top: 50px;
+  padding-bottom: 35px;
+  border-bottom: 2px dashed #e5e5e5;
+}
+
+.linggle .intro-slides .row:last-child {
+  border-bottom: none;
+}
+
+.linggle .intro-slides .row h2 {
+  margin-top: 0;
+  line-height: 2.2em;
+}
+
+.linggle .intro-slides .label {
+  font-size: 0.9em;
+}
+
+.linggle .intro-slides .label-red {
+  background: #cc0000;
+}
+
+.linggle .intro-slides .strong {
+  font-weight: bold;
+  /* font-size: 1.3em; */
+}
+
+.linggle .intro-slides .highlight {
+  color: #cc0000;
+}
+
+.linggle .intro-slides .fake-search-bar {
+  border: 1px solid #cc0000;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.linggle .intro-slides .fake-search-bar i {
+  color: #cbcbcb;
+}
+
+.linggle .intro-slides .fake-search-result-listitem {
+  padding-top: 25px;
+}
+
+.linggle .intro-slides .progress {
+  height: 5px;
+  margin-bottom: 0;
+  border: 0;
+  background: #ededed;
+  box-shadow: none;
+}
+
+.linggle .intro-slides .progress-bar {
+  background: #cc0000;
+  box-shadow: none;
+}

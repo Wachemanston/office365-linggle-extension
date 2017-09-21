@@ -16,13 +16,15 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from index.views import itri, wordaddin, emailpro
+from index.views import itri, en_index, wordaddin, emailpro
 from index.views import linggleit, getexample
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    # url(r'^accounts/', include('allauth.urls')),
     url(r'^$', itri),
     url(r'^itri/', itri),
+    url(r'^en/', en_index),
     url(r'^wordaddin/', wordaddin),
     url(r'^emailpro/', emailpro),
     url(r'^query/(?P<query>.+)', linggleit),
