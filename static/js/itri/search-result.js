@@ -59,8 +59,8 @@ var SearchResult = {
             <div class="progress-bar" role="progressbar" style="width: ${percentstr};">
           </div>
         </td>
-        <td class="percent">${percentstr}</td>
-        <td class="count">${countstr}</td>
+        <td class="percent text-right">${percentstr}</td>
+        <td class="count text-right">${countstr}</td>
         <td class="example">
           <button class="linggle btn btn-green" type="button" data-ngram="${ngramstr}"
           data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Loading"
