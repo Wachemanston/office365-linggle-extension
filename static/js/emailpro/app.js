@@ -83,9 +83,9 @@
       html += '<div class="content">';
       html += '<div class="header">';
       html += suggestions[i].pattern;
-      html += '<div class="right floated">'
-      html += suggestions[i].count;
-      html += '</div>';
+      // html += '<div class="right floated">'
+      // html += suggestions[i].count;
+      // html += '</div>';
       html += '</div>';
       html += '<div class="description">';
       html += examplesStr;
