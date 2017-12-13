@@ -2,9 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import requests
 
-API_URL = 'http://ironman.nlpweb.org:8745?search={}'
-# API_URL = 'http://lost.nlpweb.org:8745?search={}'
-API_URL2 = 'http://lost.nlpweb.org:3440/api/mix/{}'
+LINGGLE_API_URL = 'http://ironman.nlpweb.org:8745?search={}'
+WRITEAHEAD_API_URL = 'http://www.writeahead.org/add?text={}'
+EMAILPRO_API_URL = 'http://lost.nlpweb.org:3440/api/mix/{}'
 linggle_symbol = '_~?*/.'
 
 
@@ -24,6 +24,10 @@ def wordaddin(request):
     return render(request, 'wordaddin/index.html')
 
 
+def writeahead(request):
+    return render(request, 'writeahead/index.html')
+
+
 def emailpro(request):
     return render(request, 'emailpro/index.html')
 
@@ -39,10 +43,15 @@ def linggleit(request, query):
             query = query.replace(' ', ' ?to ').replace(tokens[-1], tokens[-1]+'/'+tokens[-1][:-3])
         else:
             query += ' *'+' _'*(3-query.count(' '))
-    r = requests.get(API_URL.format(query))
+    r = requests.get(LINGGLE_API_URL.format(query))
     return HttpResponse(content=r.text, status=r.status_code)
 
 
+def writeaheadit(request, query):
+    r = requests.get(WRITEAHEAD_API_URL.format(query))
+    return HttpResponse(content=r.content, status=r.status_code)
+
+
 def getexample(request, query):
-    r = requests.get(API_URL2.format(query))
+    r = requests.get(EMAILPRO_API_URL.format(query))
     return HttpResponse(content=r.text, status=r.status_code)
