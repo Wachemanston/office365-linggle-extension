@@ -38,9 +38,9 @@ h6 {
 }
 
 .ms-welcome__header {
-    min-height: 250px;
+    min-height: 60px;
     padding: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;

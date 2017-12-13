@@ -1,0 +1,72 @@
+{% load static %}
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license. -->
+<!-- See LICENSE in the project root for license information -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>linggle-word-add-ins</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
+
+    <!-- CDN -->
+    <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- Template styles -->
+    <link href="{% static 'css/wordaddin/app.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/writeahead/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <header class="ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500">
+        <div id="div1" style="display: none; position: relative; padding-top: 0cm;">
+            <h1><font size="+5" color="#cc0000" >Write</font><font size="+5" color="black">Ahead</font></h1>
+        </div>
+        <!--<h1 class="ms-fontSize-su ms-fontWeight-light ms-fontColor-neutralPrimary">Welcome</h1>-->
+    </header>
+    <main class="ms-welcome__main homepage">
+        <h2 class="ms-font-xl ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20"> Discover what WriteAhead Word can do for you today! </h2>
+        <ul class="ms-List ms-welcome__features ms-u-slideUpIn10"><font size="-1">
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Ribbon"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Achieve more with Office integration</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Unlock"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Unlock features and functionality</span>
+            </li>
+            <li class="ms-ListItem">
+                <i class="ms-Icon ms-Icon--Design"></i>
+                <span class="ms-font-m ms-fontColor-neutralPrimary">Create and visualize like a pro</span>
+            </li></font>
+        </ul>
+        <br />
+        <br />
+        <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
+        <button id="run" class="ms-welcome__action ms-Button ms-Button--hero ms-u-slideUpIn20">
+            <span class="ms-Button-label">Start</span>
+            <span class="ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronRight"></i></span>
+        </button>
+    </main>
+
+    <main class="ms-welcome__main search-area">
+        <p id="t1"></p>
+        <p id="t2"></p>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js" integrity="sha256-LIvc6/vkyvh3J7PFZELcQaeQrICgccTWc3Ty+b2eK0M=" crossorigin="anonymous"></script>
+    <script src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/js/fabric.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/writeahead/app.js' %}"></script>
+
+</body>
+
+</html>
