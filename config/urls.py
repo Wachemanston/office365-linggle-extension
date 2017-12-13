@@ -16,8 +16,8 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
-from index.views import itri, en_index, wordaddin, emailpro
-from index.views import linggleit, getexample
+from index.views import itri, en_index, wordaddin, emailpro, writeahead
+from index.views import linggleit, writeaheadit, getexample
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^en/', en_index),
     url(r'^wordaddin/', wordaddin),
     url(r'^emailpro/', emailpro),
+    url(r'^writeahead/', writeahead),
     url(r'^query/(?P<query>.+)', linggleit),
+    url(r'^pg/(?P<query>.*)', writeaheadit),
     url(r'^example/(?P<query>.+)', getexample)
 ]
