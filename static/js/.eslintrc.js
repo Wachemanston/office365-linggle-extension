@@ -12,10 +12,11 @@ module.exports = {
     "no-underscore-dangle": 0,
     "consistent-return": 0,
     "import/prefer-default-export": 0,
+    "indent": ["error", 4],
     "function-paren-newline": 0,
     "no-mixed-operators": 0,
     "max-len": [2, {"code": 140}],
-    "linebreak-style": ["warn", "windows"]
+    "linebreak-style": ["off", "windows"],
   },
   "parser": "babel-eslint",
   "globals": {
