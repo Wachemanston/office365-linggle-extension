@@ -4,6 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "build": "webpack -p",
+    "dev-watch": "webpack --watch --mode development",
+    "prod-watch": "webpack --watch --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,13 +16,16 @@
     "eslint-config-airbnb": "17.1.1",
     "eslint-plugin-import": "2.18.0",
     "eslint-plugin-jquery": "1.5.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.2"
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.14.2"
   },
   "dependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/core": "7.5.4",
+    "@babel/preset-env": "7.5.4",
     "babel-eslint": "10.0.2",
-    "babel-loader": "^8.0.6"
+    "babel-loader": "8.0.6",
+    "babel-plugin-transform-object-rest-spread": "7.0.0-beta.3",
+    "webpack": "4.35.3",
+    "webpack-cli": "3.3.6"
   }
 }

@@ -77,3 +77,4 @@ staticfiles/
 
 # JavaScript
 node_modules/
+*.bundle.js
