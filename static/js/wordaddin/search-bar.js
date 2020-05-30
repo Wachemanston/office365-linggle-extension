@@ -1,31 +1,35 @@
-var SearchBar = {
+import SearchResult from './search-result';
 
-  init: function() {
-    var brandIcon = $('.linggle.navbar .navbar-brand');
-    var searchBar = $('.linggle #search-bar');
-    var searchResultPage = $('.linggle.search-result');
-    var searchBarBtn = $('#search-bar-btn');
+const SearchBar = {
 
-    // Register events
-    searchBarBtn.click(this.handleOnClickSearchBarBtn);
-    searchBar.on('input', this.query);
-    $('form:has(#search-bar)').submit(function(e) {
-      SearchBar.query();
-      // return false to prevent default and stop propagation
-      return false;
-    });
-  },
+    init: () => {
+        const brandIcon = $('.linggle.navbar .navbar-brand');
+        const searchBar = $('.linggle #search-bar');
+        const searchResultPage = $('.linggle.search-result');
+        const searchBarBtn = $('#search-bar-btn');
 
-  handleOnClickSearchBarBtn: function(e) {
-    SearchBar.query();
-  },
+        // Register events
+        searchBarBtn.click(SearchBar.handleOnClickSearchBarBtn);
+        searchBar.on('input', SearchBar.query);
+        $('form:has(#search-bar)').submit(() => {
+            SearchBar.query();
+            // return false to prevent default and stop propagation
+            return false;
+        });
+    },
 
-  query: function() {
-    var searchBar = $('.linggle #search-bar');
-    var query = escape(searchBar.val().trim());
+    handleOnClickSearchBarBtn: () => {
+        SearchBar.query();
+    },
 
-    if (query) {
-      SearchResult.query(query);
-    }
-  }
-}
+    query: () => {
+        const searchBar = $('.linggle #search-bar');
+        const query = escape(searchBar.val().trim());
+
+        if (query) {
+            SearchResult.query(query);
+        }
+    },
+};
+
+export default SearchBar;
