@@ -47,27 +47,19 @@
             var words = text.split(" ");
             var word = words[words.length - 1];
             $('#t1').html(word);
-            // if (' ,.!\n'.indexOf(BodyText.slice(-1)) >= 0) {
-            //   $('#test').html(text);
-            // }
-            var xmlHttp=new XMLHttpRequest();
-            var str = "method";
-            var url = "/pg/" + word;
-            xmlHttp.withCredentials = true;
-            xmlHttp.open("GET", url, true);
-
-            xmlHttp.onreadystatechange = function() {
-                if(xmlHttp.readyState == 4) {
-                    // $('#t2').html(xmlHttp.responseText);
+            $.ajax({
+                url: "/pg/" + word,
+                type: 'GET',
+                dataType: 'text',
+                xhrFields: {
+                    withCredentials: true
+                },
+                success: function (text) {
                     context.sync().then(function() {
-                        // $('#test').html(url+xmlHttp.status);
-                        // $('#test').html(context().getServerUrl());
-                        // $('#test').html(xmlHttp.status);
-                        $('#t2').html(xmlHttp.responseText);
+                        $('#t2').html(text);
                     });
                 }
-            };
-            xmlHttp.send();
+            })
         }
     }
 
