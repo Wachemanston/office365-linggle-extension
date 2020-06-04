@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import requests
+import time
+import json
 
 LINGGLE_API_URL = 'http://ironman.nlpweb.org:8745?search={}'
+LINGGLE_BASED_URL = 'https://linggle.com'
 WRITEAHEAD_API_URL = 'http://www.writeahead.org/add?text={}'
 EMAILPRO_API_URL = 'http://lost.nlpweb.org:3440/api/mix/{}'
 linggle_symbol = '_~?*/.'
@@ -31,6 +34,14 @@ def writeahead(request):
 def emailpro(request):
     return render(request, 'emailpro/index.html')
 
+def process_linggleit_n_grams(data):
+    n_grams = json.loads(data, encoding='UTF-8')['ngrams']
+    total = sum([v[1] for v in n_grams])
+    return [(v[0],
+             {
+                 'percent': round(v[1] * 100 / total, 1),
+                 'count': int(f'{str(v[1])[:2]}{"0" * (len(str(v[1])) - 2)}')
+             }) for v in n_grams]
 
 def linggleit(request, query):
     if all(ch not in query for ch in linggle_symbol):
@@ -43,8 +54,14 @@ def linggleit(request, query):
             query = query.replace(' ', ' ?to ').replace(tokens[-1], tokens[-1]+'/'+tokens[-1][:-3])
         else:
             query += ' *'+' _'*(3-query.count(' '))
-    r = requests.get(LINGGLE_API_URL.format(query))
-    return HttpResponse(content=r.text, status=r.status_code)
+    form = {'time': time.time(), 'query': query}
+    r = requests.post(f'{LINGGLE_BASED_URL}/ngram/', json=form)
+    if r.status_code == 200:
+        n_grams = process_linggleit_n_grams(r.text)
+        jsonify_n_grams = json.dumps({k[0]: k[1] for k in n_grams})
+        return HttpResponse(content=jsonify_n_grams, status=r.status_code)
+    else:
+        return HttpResponse(content=r.text, status=r.status_code)
 
 
 def writeaheadit(request, query):
