@@ -4,6 +4,7 @@ module.exports = {
     "jquery",
     "import"
   ],
+  "ignorePatterns": ["**/app.js", "**/*.bundle.js", "**/function-file.js"],
   "rules": {
     "arrow-body-style": 0,
     "no-use-before-define": 0,
