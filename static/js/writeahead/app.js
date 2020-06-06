@@ -28,7 +28,7 @@
 
     var bodyText = '';
     function detectText() {
-        return Word.run(function(context) {
+        Word.run(function(context) {
             var body = context.document.body;
             context.load(body, 'text');
             context.sync().then(function() {
@@ -50,13 +50,13 @@
             $.ajax({
                 url: "/pg/" + word,
                 type: 'GET',
-                dataType: 'text',
+                dataType: 'json',
                 xhrFields: {
                     withCredentials: true
                 },
-                success: function (text) {
+                success: function (json) {
                     context.sync().then(function() {
-                        $('#t2').html(text);
+                        $('#t2').html(JSON.stringify(json));
                     });
                 }
             })
