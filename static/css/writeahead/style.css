@@ -1,3 +1,33 @@
+/*
+Theme (Main Office add-in use IE11 as browser, which can't use custom properties)
+  Color
+    flash: #CEE5F5;
+    light-primary: #AACBE2;
+    primary: #377BAB;
+    dark-primary: #003399;
+    light-secondary: #dd4b39;
+    dark-secondary: #c40000;
+    support: #F0D6D6;
+    semi-dark: #666;
+    sm-dark: #777;
+    sm-light: #ccc;
+    semi-light: #eee;
+    light: #f4f4f4;
+    md-light: #fafafa;
+
+  Font Family
+    primary: 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+    heaer: 'Georgia', serif;
+    ngram: Arial, Helvetica, sans-serif;
+    subheader: Arial,sans-serif;
+
+  Font Size
+    exlg: 1.2em;
+    lg: 1em;
+    md: 0.9em;
+    sm: 0.8em;
+*/
+
 body            { font-family: sans-serif; background: #f4f4f4; }
 a, h1, h2       { color: #377BAB; }
 h1, h2          { font-family: 'Georgia', serif; margin: 0; }
