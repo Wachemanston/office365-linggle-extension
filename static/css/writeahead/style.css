@@ -28,6 +28,10 @@ Theme (Main Office add-in use IE11 as browser, which can't use custom properties
     sm: 0.8em;
 */
 
+.ff-primary {
+  font-family: 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+}
+
 body            { font-family: sans-serif; background: #f4f4f4; }
 a, h1, h2       { color: #377BAB; }
 h1, h2          { font-family: 'Georgia', serif; margin: 0; }
@@ -96,6 +100,142 @@ h2              { font-size: 1.2em; }
   margin: 0 8px;
   padding: 0 8px;
   text-decoration: none;
+}
+
+.animation-duration-10 {
+    -webkit-animation-duration: .167s;
+    -moz-animation-duration: .167s;
+    -ms-animation-duration: .167s;
+    -o-animation-duration: .167s;
+    animation-timing-function: cubic-bezier(.1,.9,.2,1);
+    animation-fill-mode: both;
+}
+
+.animation-duration-20 {
+    -webkit-animation-duration: .367s;
+    -moz-animation-duration: .367s;
+    -ms-animation-duration: .367s;
+    -o-animation-duration: .367s;
+    animation-timing-function: cubic-bezier(.1,.9,.2,1);
+    animation-fill-mode: both;
+}
+
+.ms-Button{
+    box-sizing: border-box;
+    margin: 0;
+    box-shadow: none;
+    font-family: Segoe UI WestEuropean,Segoe UI,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #333;
+    font-size: 1.5em;
+    font-weight: 400;
+    background-color: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    cursor: pointer;
+    display: inline-block;
+    height: 32px;
+    min-width: 80px;
+    padding: 4px 20px 6px;
+}
+
+.ms-Button.ms-Button--hero{
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    position: relative;
+}
+
+.ms-Button:hover .ms-Button-label {
+    color: #000;
+}
+
+@media screen and (-ms-high-contrast:active) {
+    .ms-Button:hover {
+        color: #1aebff;
+        border-color: #1aebff;
+    }
+}
+
+@media screen and (-ms-high-contrast:black-on-white) {
+    .ms-Button:hover {
+        color: #37006e;
+        border-color: #37006e;
+    }
+}
+
+.ms-Button:focus {
+    background-color: #eaeaea;
+    border-color: #0078d7;
+    outline: 1px solid transparent;
+}
+
+.ms-Button-label {
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.ms-Button.ms-Button--hero .ms-Button-icon {
+    color:#0078d7;
+    display:inline-block;
+    font-size:12px;
+    margin-right:4px;
+    text-align:center;
+}
+
+.ms-Button.ms-Button--hero .ms-Button-icon .ms-Icon {
+    border-radius: 18px;
+    border: 1px solid #0078d7;
+    font-size: 12px;
+    height: 18px;
+    line-height: 18px;
+    width: 18px;
+}
+
+.ms-Button.ms-Button--hero .ms-Button-label {
+    color: #0078d7;
+    font-size: 21px;
+    font-weight: 100;
+    position: relative;
+    text-decoration: none;
+    vertical-align: top;
+}
+
+.ms-Button.ms-Button--hero:focus .ms-Button-icon,
+.ms-Button.ms-Button--hero:hover .ms-Button-icon {
+    color: #005a9e;
+}
+
+.ms-Button.ms-Button--hero:focus .ms-Button-icon .ms-Icon,
+.ms-Button.ms-Button--hero:hover .ms-Button-icon .ms-Icon {
+    border: 1px solid #005a9e;
+}
+
+.ms-Button.ms-Button--hero:focus .ms-Button-label,
+.ms-Button.ms-Button--hero:hover .ms-Button-label {
+    color: #004578;
+}
+
+.ms-Button.ms-Button--hero:active .ms-Button-icon {
+    color: #0078d7;
+}
+
+.ms-Button.ms-Button--hero:active .ms-Button-icon .ms-Icon {
+    border:1px solid #0078d7;
+}
+
+.ms-Button.ms-Button--hero:active .ms-Button-label {
+    color: #0078d7;
+}
+
+.ms-Button:active .ms-Button-label {
+    color: #fff;
+}
+
+.ms-Button:focus .ms-Button-label {
+    color: #000;
 }
 
 .search-area {
