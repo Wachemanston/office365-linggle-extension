@@ -3,6 +3,8 @@ from django.http import HttpResponse
 import requests
 import time
 import json
+import re
+from html.parser import HTMLParser
 
 LINGGLE_API_URL = 'http://ironman.nlpweb.org:8745?search={}'
 LINGGLE_BASED_URL = 'https://linggle.com'
@@ -43,6 +45,66 @@ def process_linggleit_n_grams(data):
                  'count': int(f'{str(v[1])[:2]}{"0" * (len(str(v[1])) - 2)}')
              }) for v in n_grams]
 
+
+def parse_writeahead_result(content):
+    ngram_header_pattern = re.compile(r'\[[A-Z]\]')
+
+    def is_new_ngram(text):
+        return ngram_header_pattern.match(text[:3]) is not None
+
+    class WriteaheadParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.d = {}
+            self.current_line_num = -1
+            self.current_ngram = None
+            self.has_new_ngram = False
+            self.examples = []
+            self.example = {}
+            self.current_attrib = None
+
+        def handle_starttag(self, tag, attrs):
+            for attr, v in attrs:
+                if attr == 'class':
+                    self.current_attrib = v
+
+        def handle_data(self, data):
+            line_number = super().getpos()[0]
+            if line_number - self.current_line_num > 1 and bool(self.example):
+                self.examples.append(self.example)
+                self.example = {}
+            self.current_line_num = line_number
+            if is_new_ngram(data):
+                if self.current_ngram is not None:
+                    self.d[self.current_ngram].update({'examples': self.examples})
+                self.examples = []
+                self.example = {}
+                self.has_new_ngram = True
+                self.current_ngram = data
+            else:
+                try:
+                    data = int(data)
+                    if self.has_new_ngram:
+                        self.d[self.current_ngram] = {'count': data}
+                        self.has_new_ngram = False
+                    else:
+                        self.example.update({self.current_attrib: data})
+                except ValueError:
+                    data = re.sub('[\n\t]', '', data.strip())
+                    if len(data):
+                        self.example.update({self.current_attrib: data})
+
+        def handle_document_end(self):
+            if bool(self.example) and self.current_ngram is not None:
+                self.examples.append(self.example)
+                self.d[self.current_ngram].update({'examples': self.examples})
+
+    parser = WriteaheadParser()
+    parser.feed(content)
+    parser.handle_document_end()
+    return parser.d
+
+
 def linggleit(request, query):
     if all(ch not in query for ch in linggle_symbol):
         tokens = query.split()
@@ -65,8 +127,10 @@ def linggleit(request, query):
 
 
 def writeaheadit(request, query):
-    r = requests.get(WRITEAHEAD_API_URL.format(query))
-    return HttpResponse(content=r.content, status=r.status_code)
+    r = requests.get(WRITEAHEAD_API_URL.format(query), headers={'Cookie': 'show_more_exp=true'})
+    dict_data = parse_writeahead_result(re.sub('\t', '', r.text))
+    json_data = json.dumps(dict_data)
+    return HttpResponse(content=json_data, status=r.status_code)
 
 
 def getexample(request, query):
