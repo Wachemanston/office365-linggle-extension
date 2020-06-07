@@ -32,7 +32,8 @@ Theme (Main Office add-in use IE11 as browser, which can't use custom properties
   font-family: 'Segoe UI Web (West European)', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
 }
 
-body            { font-family: sans-serif; background: #f4f4f4; }
+body            { font-family: sans-serif; background: #f4f4f4; -ms-overflow-style: none; }
+body::-webkit-scrollbar { display: none; }
 a, h1, h2       { color: #377BAB; }
 h1, h2          { font-family: 'Georgia', serif; margin: 0; }
 h1              { border-bottom: 2px solid #eee; }
@@ -45,14 +46,15 @@ h2              { font-size: 1.2em; }
 .flash          { background: #CEE5F5; padding: 0.5em;
                   border: 1px solid #AACBE2; }
 .error          { background: #F0D6D6; padding: 0.5em; }
-.example        { padding-left: 2.3em; text-decoration: none;color: #003399; font-style: italic; margin:0;}
+.example        { color: #323130; margin:0; max-width: 100%; white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;}
 .ngram          { font-size: 1em; font-weight: bold; line-height: 1.5em; font-family: Arial, Helvetica, sans-serif; margin-top:8px; margin-bottom:0;}
-.example .main {}
 .example .prev {opacity: 0.6;}
 .example .post {opacity: 0.6;}
 .example .translate {opacity: 0.7; padding-right:5px}
-.example .c1 {color:#eee;}
-.example .c2 {color:#eee;}
+.example .c1 {opacity: 0.2;}
+.example .c2 {opacity: 0.2;}
 
 #hdtb_msb {
   outline-width: 0;
@@ -243,5 +245,119 @@ h2              { font-size: 1.2em; }
 }
 
 .search-area {
-  display: none;
+    display: none;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+#search-result {
+    width: 100%;
+    max-width: 100%;
+}
+
+.ngram-container {
+    margin-bottom: 0.25rem;
+    padding: 0.5rem 0 0.75rem 0;
+}
+
+.ngram-title-container,
+.example-container {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ngram-title-container {
+    margin-bottom: 0.5rem;
+}
+
+.examples-container {
+    width: 100%;
+}
+
+.badge-container,
+.badge,
+.badge span {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.badge {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    border-radius: 50%;
+    color: #f4f4f4;
+    background-color: #797775; /* gray120 */
+    line-height: 4rem;
+}
+
+.badge span {
+    height: 1.25rem;
+    position: absolute;
+    bottom: -0.5rem;
+    right: -0.5rem;
+    padding: 0 0.25rem;
+    border-radius: 0.25rem;
+    color: #f4f4f4;
+    background-color: #d13438; /* red10 */
+}
+
+.badge[data-type='N'] {
+    background-color: #da3b01; /* redOrange10 */
+}
+
+.badge[data-type='R'] {
+    background-color: #750b1c; /* pinkRed10 */
+}
+
+.badge[data-type='V'] {
+    background-color: #8e562e; /* orange30 */
+}
+
+.badge[data-type='D'] {
+    background-color: #986f0b; /* orangeYellow20 */
+}
+
+.badge[data-type='J'] {
+    background-color: #c239b3 /* magenta10 */
+}
+
+.ngram-title-container span,
+.ms-Button.btn-load-more {
+    min-height: 1rem;
+    height: 1rem;
+    min-width: 1rem;
+    display: inline-flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.example-count {
+    width: 1rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.ms-Button.btn-load-more {
+    color: #0078d7;
 }

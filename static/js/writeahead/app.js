@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
  * See LICENSE in the project root for license information.
  */
-
+import SearResult from './search-result';
 'use strict';
 
 (function () {
@@ -14,6 +14,7 @@
                 .animate({opacity:'1',left:"+=5px"}, 1500);
             $("#run").click(initSearch);
             detectText();
+            SearResult.setContainer($('#search-result'))
         });
     };
 
@@ -56,17 +57,11 @@
                 },
                 success: function (json) {
                     context.sync().then(function() {
-                        $('#t2').html(JSON.stringify(json));
+                        SearResult.setData(json);
+                        SearResult.render();
                     });
                 }
             })
         }
     }
-
-    // $(document).ready(function () {
-    //   $("#div1").css({display:'block', opacity:'0'})
-    //     .animate({opacity:'1',left:"+=5px"}, 1500);
-    //   $("main").html('<p id="t1"></p><p id="t2"></p>');
-    //   search("Welcome");
-    // });
 })();

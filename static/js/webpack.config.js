@@ -39,4 +39,14 @@ const wordAddin = Object.assign({}, config, {
     },
 });
 
-module.exports = [wordAddin];
+const writeAheadAddIn = Object.assign({}, config, {
+    entry: {
+        index: './writeahead/app.js',
+    },
+    output: {
+        path: path.resolve(__dirname, 'writeahead'),
+        filename: '[name].bundle.js',
+    },
+});
+
+module.exports = [wordAddin, writeAheadAddIn];
