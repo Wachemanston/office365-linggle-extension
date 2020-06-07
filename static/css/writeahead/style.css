@@ -102,6 +102,10 @@ h2              { font-size: 1.2em; }
   text-decoration: none;
 }
 
+.ms-List {
+    margin-bottom: 2rem;
+}
+
 .animation-duration-10 {
     -webkit-animation-duration: .167s;
     -moz-animation-duration: .167s;
