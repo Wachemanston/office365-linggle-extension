@@ -3,6 +3,8 @@
  * See LICENSE in the project root for license information.
  */
 import SearResult from './search-result';
+import Query from './query';
+
 'use strict';
 
 (function () {
@@ -14,7 +16,8 @@ import SearResult from './search-result';
                 .animate({opacity:'1',left:"+=5px"}, 1500);
             $("#run").click(initSearch);
             detectText();
-            SearResult.setContainer($('#search-result'))
+            SearResult.setContainer($('#search-result'));
+            Query.setContainer($('#query-text'));
         });
     };
 
@@ -45,23 +48,14 @@ import SearResult from './search-result';
     function search(text, context) {
         if (text != bodyText) {
             bodyText = text;
-            var words = text.split(" ");
-            var word = words[words.length - 1];
-            $('#t1').html(word);
-            $.ajax({
-                url: "/pg/" + word,
-                type: 'GET',
-                dataType: 'json',
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function (json) {
-                    context.sync().then(function() {
-                        SearResult.setData(json);
-                        SearResult.render();
-                    });
-                }
-            })
+            // TODO: query 'text' or 'word'
+            Query.query(text);
+            Query.setHandleSuccess((json) => {
+                context.sync().then(function() {
+                    SearResult.setData(json);
+                    SearResult.render();
+                });
+            });
         }
     }
 })();

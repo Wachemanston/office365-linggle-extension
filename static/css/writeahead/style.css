@@ -244,6 +244,19 @@ h2              { font-size: 1.2em; }
     color: #000;
 }
 
+#query-text h2 {
+    margin: 1rem 0;
+}
+
+.query-item {
+    color: #000;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.query-item:hover {
+    color: #d13438; /* red10 */
+}
 .search-area {
     display: none;
     -webkit-flex-wrap: nowrap;
