@@ -4,6 +4,7 @@
  */
 import SearResult from './search-result';
 import Query from './query';
+import NavBar from './navbar';
 
 'use strict';
 
@@ -18,6 +19,31 @@ import Query from './query';
             detectText();
             SearResult.setContainer($('#search-result'));
             Query.setContainer($('#query-text'));
+            NavBar.setContainer($('#nav-bar-container'));
+            NavBar.setCaller(SearResult);
+            NavBar.registerItems([
+                {
+                    title: 'Patterns',
+                    onValue: 'more',
+                    offValue: 'less',
+                    token: 'pattern',
+                    handleToggle: SearResult.toggleMorePatterns,
+                },
+                {
+                    title: 'Examples',
+                    onValue: 'more',
+                    offValue: 'less',
+                    token: 'example',
+                    handleToggle: SearResult.toggleMoreExamples,
+                },
+                {
+                    title: 'Mode',
+                    onValue: 'Edit',
+                    offValue: 'Write',
+                    token: 'mode',
+                    handleToggle: SearResult.toggleEditingMode,
+                }
+            ]);
         });
     };
 

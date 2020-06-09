@@ -51,6 +51,13 @@ const Ngram = ({ ngram, count, examples, idx }) => {
 const SearchResult = {
     data: '',
     container: null,
+    toggleMorePatterns() {
+    },
+    toggleMoreExamples(isShow) {
+        $('.show-more-toggle').prop('checked', isShow);
+    },
+    toggleEditingMode() {
+    },
     setData(jsonData) {
         this.data = '';
         let idx = 0;
