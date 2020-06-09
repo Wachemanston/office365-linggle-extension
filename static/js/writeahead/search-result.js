@@ -22,14 +22,16 @@ const Ngram = ({ ngram, count, examples, idx }) => {
     try {
         const type = ngram[1].toUpperCase();
         const title = ngram.slice(4);
-        let examplesList = Examples(examples);
+        const examplesList = Examples(examples);
+        let examplesContainer = `<ul class="examples-container">${examplesList.join('')}</ul>`;
         if (examplesList.length > 3) {
-            examplesList = `${examplesList.slice(0, 3).join('')}
-                <button id="run" class="ms-Button ms-Button--hero btn-load-more">
-                    <span class="ms-fontSize-m">more ...</span>
+            const toggleId = `${ngram}-toggle`;
+            examplesContainer = `
+                <input class="show-more-toggle" type="checkbox" style="display: none" id="${toggleId}">
+                ${examplesContainer}
+                <button class="ms-Button ms-Button--hero btn-load-more">
+                    <label class="ms-fontSize-m" for="${toggleId}"></label>
                 </button>`;
-        } else {
-            examplesList = examplesList.join('');
         }
         return (`<div class="ms-Grid-row ms-depth-8 ms-motion-slideUpIn ngram-container" style="animation-delay: ${idx * 0.1}s">
                     <div class="ms-Grid-col ms-sm3 ms-lg2 badge-container">${Badge({ type, count })}</div>
@@ -38,7 +40,7 @@ const Ngram = ({ ngram, count, examples, idx }) => {
                             <h2 class="ms-fontWeight-semibold ms-fontSize-l ff-primary">${title}</h2>
                             <span class="ms-Button ms-Button--hero"><i class="ms-Button-icon ms-Icon ms-Icon--MiniExpand"></i></span>
                         </div>
-                        <ul class="examples-container">${examplesList}</ul>
+                        ${examplesContainer}
                     </div>
                 </div>`);
     } catch (e) {

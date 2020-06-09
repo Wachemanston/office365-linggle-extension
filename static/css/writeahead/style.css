@@ -297,6 +297,13 @@ h2              { font-size: 1.2em; }
 
 .examples-container {
     width: 100%;
+    max-height: 3rem;
+    overflow: hidden;
+    transition: all .3s;
+}
+
+.show-more-toggle:checked + .examples-container {
+    max-height: 10rem;
 }
 
 .badge-container,
@@ -369,6 +376,18 @@ h2              { font-size: 1.2em; }
     width: 1rem;
     display: inline-block;
     text-align: center;
+}
+
+.ngram-container label {
+    cursor: pointer;
+}
+
+.ngram-container label::after {
+    content: 'more...';
+}
+
+.show-more-toggle:checked ~ button label::after {
+    content: 'less'
 }
 
 .ms-Button.btn-load-more {
