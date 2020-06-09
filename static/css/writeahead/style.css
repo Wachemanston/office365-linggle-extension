@@ -257,7 +257,7 @@ h2              { font-size: 1.2em; }
     color: #0078d4;
 }
 
-.nav-item-toggle {
+.nav-item-toggle-circle-container {
     width: 2rem;
     height: 1rem;
     position: relative;
@@ -278,7 +278,7 @@ h2              { font-size: 1.2em; }
     transition: all .3s;
 }
 
-.nav-item-toggle-label:hover .nav-item-toggle {
+.nav-item-toggle-label:hover .nav-item-toggle-circle-container {
     border-color: #000;
 }
 
@@ -286,7 +286,7 @@ h2              { font-size: 1.2em; }
     background-color: #000;
 }
 
-.nav-item-toggle:checked + .nav-item-toggle-label .nav-item-toggle {
+.nav-item-toggle:checked + .nav-item-toggle-label .nav-item-toggle-circle-container {
     border: 0;
     background-color: #0078d4;
 }
@@ -297,7 +297,7 @@ h2              { font-size: 1.2em; }
     right: 0.125rem;
 }
 
-.nav-item-toggle:checked + .nav-item-toggle-label:hover .nav-item-toggle {
+.nav-item-toggle:checked + .nav-item-toggle-label:hover .nav-item-toggle-circle-container {
     background-color: #005a9e;
 }
 

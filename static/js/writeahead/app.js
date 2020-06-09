@@ -20,7 +20,6 @@ import NavBar from './navbar';
             SearResult.setContainer($('#search-result'));
             Query.setContainer($('#query-text'));
             NavBar.setContainer($('#nav-bar-container'));
-            NavBar.setCaller(SearResult);
             NavBar.registerItems([
                 {
                     title: 'Patterns',
@@ -34,7 +33,7 @@ import NavBar from './navbar';
                     onValue: 'more',
                     offValue: 'less',
                     token: 'example',
-                    handleToggle: SearResult.toggleMoreExamples,
+                    handleToggle: SearResult.toggleMoreExamples.bind(SearResult),
                 },
                 {
                     title: 'Mode',

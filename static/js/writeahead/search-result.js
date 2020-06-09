@@ -49,10 +49,16 @@ const Ngram = ({ ngram, count, examples, idx }) => {
 const SearchResult = {
     data: '',
     container: null,
+    showMoreExamples: false,
     toggleMorePatterns() {
     },
     toggleMoreExamples(isShow) {
-        $('.show-more-toggle').prop('checked', isShow);
+        $('.show-more-toggle').each((_, element) => {
+            if (element.checked !== isShow) {
+                element.click();
+            }
+        });
+        this.showMoreExamples = isShow;
     },
     toggleEditingMode() {
     },
@@ -69,6 +75,9 @@ const SearchResult = {
     render() {
         if (this.data.length && this.container) {
             this.container.html(this.data);
+            if (this.showMoreExamples) {
+                this.toggleMoreExamples(true);
+            }
         }
     },
 };
