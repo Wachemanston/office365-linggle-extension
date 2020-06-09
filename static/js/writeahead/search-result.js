@@ -29,9 +29,7 @@ const Ngram = ({ ngram, count, examples, idx }) => {
             examplesContainer = `
                 <input class="show-more-toggle" type="checkbox" style="display: none" id="${toggleId}">
                 ${examplesContainer}
-                <button class="ms-Button ms-Button--hero btn-load-more">
-                    <label class="ms-fontSize-m" for="${toggleId}"></label>
-                </button>`;
+                <label class="ms-Button ms-Button--hero btn-load-more" for="${toggleId}"></label>`;
         }
         return (`<div class="ms-Grid-row ms-depth-8 ms-motion-slideUpIn ngram-container" style="animation-delay: ${idx * 0.1}s">
                     <div class="ms-Grid-col ms-sm3 ms-lg2 badge-container">${Badge({ type, count })}</div>

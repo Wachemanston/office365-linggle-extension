@@ -451,14 +451,15 @@ h2              { font-size: 1.2em; }
     cursor: pointer;
 }
 
-.ngram-container label::after {
+.ngram-container .btn-load-more::after {
     content: 'more...';
 }
 
-.show-more-toggle:checked ~ button label::after {
+.show-more-toggle:checked ~ .btn-load-more::after {
     content: 'less'
 }
 
 .ms-Button.btn-load-more {
     color: #0078d7;
+    font-size: 14px;
 }
