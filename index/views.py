@@ -55,6 +55,8 @@ def parse_writeahead_result(content):
     class WriteaheadParser(HTMLParser):
         def __init__(self):
             super().__init__()
+            self.mode_tokens = {'gp_block': 'gp', 'sgp_block': 'sgp'}
+            self.current_mode = None
             self.d = {}
             self.current_line_num = -1
             self.current_ngram = None
@@ -67,6 +69,11 @@ def parse_writeahead_result(content):
             for attr, v in attrs:
                 if attr == 'class':
                     self.current_attrib = v
+                if attr == 'id' and v in self.mode_tokens:
+                    mode = self.mode_tokens[v]
+                    self.d[mode] = {}
+                    self.current_mode = mode
+                    self.current_ngram = None
 
         def handle_data(self, data):
             line_number = super().getpos()[0]
@@ -76,16 +83,17 @@ def parse_writeahead_result(content):
             self.current_line_num = line_number
             if is_new_ngram(data):
                 if self.current_ngram is not None:
-                    self.d[self.current_ngram].update({'examples': self.examples})
+                    self.d[self.current_mode][self.current_ngram].update({'examples': self.examples})
                 self.examples = []
                 self.example = {}
                 self.has_new_ngram = True
                 self.current_ngram = data
+                self.d[self.current_mode].update({data: {}})
             else:
                 try:
                     data = int(data)
                     if self.has_new_ngram:
-                        self.d[self.current_ngram] = {'count': data}
+                        self.d[self.current_mode][self.current_ngram] = {'count': data}
                         self.has_new_ngram = False
                     else:
                         self.example.update({self.current_attrib: data})
@@ -97,7 +105,7 @@ def parse_writeahead_result(content):
         def handle_document_end(self):
             if bool(self.example) and self.current_ngram is not None:
                 self.examples.append(self.example)
-                self.d[self.current_ngram].update({'examples': self.examples})
+                self.d[self.current_mode][self.current_ngram].update({'examples': self.examples})
 
     parser = WriteaheadParser()
     parser.feed(content)
