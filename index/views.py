@@ -81,11 +81,13 @@ def parse_writeahead_result(content):
                 if attr == 'class':
                     self.current_attrib = v
                 if attr == 'id' and v in self.mode_tokens:
+                    self.handle_document_end()
                     self.reset_mode_level_scope(v)
 
         def handle_data(self, data):
+            data = re.sub('[\n\t]', '', data)
             line_number = super().getpos()[0]
-            if line_number - self.current_line_num > 1 and bool(self.example):
+            if line_number - self.current_line_num > 1 and bool(self.example) and data:
                 self.examples.append(self.example)
                 self.example = {}
             self.current_line_num = line_number
