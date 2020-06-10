@@ -81,16 +81,27 @@ def parse_writeahead_result(content):
                 if attr == 'class':
                     self.current_attrib = v
                 if attr == 'id' and v in self.mode_tokens:
-                    self.handle_document_end()
+                    if len(self.examples) and self.current_mode is not None and self.current_ngram is not None:
+                        self.d[self.current_mode][self.current_ngram].update({'examples': self.examples})
                     self.reset_mode_level_scope(v)
 
-        def handle_data(self, data):
-            data = re.sub('[\n\t]', '', data)
+        @staticmethod
+        def is_valid_data(data):
+            data = re.sub('\n', '', data.strip())
+            return len(data) != 0, data
+
+        def update_line_number(self):
             line_number = super().getpos()[0]
-            if line_number - self.current_line_num > 1 and bool(self.example) and data:
+            if line_number - self.current_line_num > 1 and bool(self.example):
                 self.examples.append(self.example)
                 self.example = {}
             self.current_line_num = line_number
+
+        def handle_data(self, data):
+            self.update_line_number()
+            valid_data, data = self.is_valid_data(data)
+            if not valid_data:
+                return
             if is_new_ngram(data):
                 if self.current_ngram is not None:
                     self.d[self.current_mode][self.current_ngram].update({'examples': self.examples})
@@ -106,9 +117,7 @@ def parse_writeahead_result(content):
                     else:
                         self.example.update({self.current_attrib: data})
                 except ValueError:
-                    data = re.sub('[\n\t]', '', data.strip())
-                    if len(data):
-                        self.example.update({self.current_attrib: data})
+                    self.example.update({self.current_attrib: data})
 
         def handle_document_end(self):
             if bool(self.example) and self.current_ngram is not None:
