@@ -65,15 +65,23 @@ def parse_writeahead_result(content):
             self.example = {}
             self.current_attrib = None
 
+        def reset_mode_level_scope(self, v):
+            mode = self.mode_tokens[v]
+            self.d[mode] = {}
+            self.current_mode = mode
+            self.current_ngram = None
+
+        def reset_examples(self):
+            self.examples = []
+            self.example = {}
+            self.has_new_ngram = True
+
         def handle_starttag(self, tag, attrs):
             for attr, v in attrs:
                 if attr == 'class':
                     self.current_attrib = v
                 if attr == 'id' and v in self.mode_tokens:
-                    mode = self.mode_tokens[v]
-                    self.d[mode] = {}
-                    self.current_mode = mode
-                    self.current_ngram = None
+                    self.reset_mode_level_scope(v)
 
         def handle_data(self, data):
             line_number = super().getpos()[0]
@@ -84,9 +92,7 @@ def parse_writeahead_result(content):
             if is_new_ngram(data):
                 if self.current_ngram is not None:
                     self.d[self.current_mode][self.current_ngram].update({'examples': self.examples})
-                self.examples = []
-                self.example = {}
-                self.has_new_ngram = True
+                self.reset_examples()
                 self.current_ngram = data
                 self.d[self.current_mode].update({data: {}})
             else:
