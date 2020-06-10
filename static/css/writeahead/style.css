@@ -312,6 +312,23 @@ h2              { font-size: 1.2em; }
     cursor: pointer;
 }
 
+.labels-container {
+    height: 2rem;
+    overflow: hidden;
+}
+
+.labels-container .window {
+    transition: all .3s;
+}
+
+.labels-container .window.is-on {
+    margin-top: -2rem;
+}
+
+.labels-container span {
+    display: block;
+}
+
 #query-text h2 {
     margin: 1rem 0;
 }

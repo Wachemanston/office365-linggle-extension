@@ -37,8 +37,8 @@ import NavBar from './navbar';
                 },
                 {
                     title: 'Mode',
-                    onValue: 'Edit',
-                    offValue: 'Write',
+                    onValue: 'edit',
+                    offValue: 'write',
                     token: 'mode',
                     handleToggle: SearResult.toggleEditingMode.bind(SearResult),
                 }

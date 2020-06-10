@@ -9,8 +9,10 @@ const NavToggleItem = ({ title, onValue, offValue, token }) => {
                         <div class="nav-item-toggle-circle"></div>
                     </div>
                     <div class="labels-container">
-                        <span>${offValue}</span>
-                        <span>${onValue}</span>
+                        <div class="window">
+                            <span>${offValue}</span>
+                            <span>${onValue}</span>
+                        </div>
                     </div>
                 </label>
             </div>`;
@@ -31,7 +33,11 @@ const NavBar = {
                     this.items.push(item);
                     this.registeredBindings.push(() => {
                         const target = $(`#nav-item-${token}`);
-                        target.click(() => { handleToggle(target.prop('checked')); });
+                        target.click(() => {
+                            const isChecked = target.prop('checked');
+                            handleToggle(isChecked);
+                            target.next('label').find('.window').toggleClass('is-on');
+                        });
                     });
                 }
             });
