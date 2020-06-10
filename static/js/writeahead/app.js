@@ -40,7 +40,7 @@ import NavBar from './navbar';
                     onValue: 'Edit',
                     offValue: 'Write',
                     token: 'mode',
-                    handleToggle: SearResult.toggleEditingMode,
+                    handleToggle: SearResult.toggleEditingMode.bind(SearResult),
                 }
             ]);
         });

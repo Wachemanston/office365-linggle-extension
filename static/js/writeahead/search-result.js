@@ -1,3 +1,8 @@
+const EDIT_MODES = {
+    WRITE: 'gp',
+    EDIT: 'sgp',
+};
+
 const Badge = ({ count, type }) => {
     return `<div class="ms-font-xxl ms-depth-8 badge" data-type="${type}">${type}<span class="ms-depth-8 ms-font-s">${count}</span></div>`;
 };
@@ -47,9 +52,11 @@ const Ngram = ({ ngram, count, examples, idx }) => {
 };
 
 const SearchResult = {
-    data: '',
+    data: null,
+    HTMLData: '',
     container: null,
     showMoreExamples: false,
+    editMode: EDIT_MODES.WRITE,
     toggleMorePatterns() {
     },
     toggleMoreExamples(isShow) {
@@ -60,21 +67,29 @@ const SearchResult = {
         });
         this.showMoreExamples = isShow;
     },
-    toggleEditingMode() {
+    toggleEditingMode(isEditMode) {
+        this.editMode = isEditMode ? EDIT_MODES.EDIT : EDIT_MODES.WRITE;
+        this.updateHTMLData();
+        this.render();
     },
     setData(jsonData) {
-        this.data = '';
+        this.data = jsonData;
+        this.updateHTMLData();
+    },
+    updateHTMLData() {
+        this.HTMLData = '';
+        const data = this.data[this.editMode];
         let idx = 0;
-        $.each(jsonData, (ngram, objValue) => {
+        $.each(data, (ngram, objValue) => {
             const { count, examples } = objValue;
-            this.data += Ngram({ ngram, count, examples, idx });
+            this.HTMLData += Ngram({ ngram, count, examples, idx });
             idx += 1;
         });
     },
     setContainer(container) { this.container = container; },
     render() {
-        if (this.data.length && this.container) {
-            this.container.html(this.data);
+        if (this.HTMLData.length && this.container) {
+            this.container.html(this.HTMLData);
             if (this.showMoreExamples) {
                 this.toggleMoreExamples(true);
             }
