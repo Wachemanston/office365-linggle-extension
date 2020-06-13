@@ -57,8 +57,6 @@ const SearchResult = {
     container: null,
     showMoreExamples: false,
     editMode: EDIT_MODES.WRITE,
-    toggleMorePatterns() {
-    },
     toggleMoreExamples(isShow) {
         $('.show-more-toggle').each((_, element) => {
             if (element.checked !== isShow) {

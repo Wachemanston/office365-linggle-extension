@@ -12,6 +12,11 @@ const Query = {
     queryText: '',
     originalText: '',
     isEnter: false,
+    showMorePatterns: false,
+    toggleShowMorePatterns(showMore) {
+        this.showMorePatterns = showMore;
+        this.apiGet();
+    },
     onSuccess(json) {
         if (this.handleSuccess) {
             this.handleSuccess(json);
@@ -41,6 +46,19 @@ const Query = {
         this.queryText = text;
         if (!this.isEnter) { this.originalText = text; }
     },
+    apiGet() {
+        $.ajax({
+            // TODO: 'show_more' should be set as a cookie
+            url: `/pg/${this.queryText}&show_more=${this.showMorePatterns}`,
+            type: 'GET',
+            dataType: 'json',
+            crossDomain: true,
+            xhrFields: {
+                withCredentials: true,
+            },
+            success: this.onSuccess.bind(this),
+        });
+    },
     query(words) {
         if (this.queryText !== words) {
             let queryList = words.split(' ');
@@ -49,15 +67,7 @@ const Query = {
             const queryText = queryList.join(' ');
             this.setQueryText(queryText);
             this.render();
-            $.ajax({
-                url: `/pg/${queryText}`,
-                type: 'GET',
-                dataType: 'json',
-                xhrFields: {
-                    withCredentials: true,
-                },
-                success: this.onSuccess.bind(this),
-            });
+            this.apiGet();
         }
     },
 };

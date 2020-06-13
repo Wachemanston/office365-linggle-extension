@@ -26,7 +26,7 @@ import NavBar from './navbar';
                     onValue: 'more',
                     offValue: 'less',
                     token: 'pattern',
-                    handleToggle: SearResult.toggleMorePatterns,
+                    handleToggle: Query.toggleShowMorePatterns.bind(Query),
                 },
                 {
                     title: 'Examples',

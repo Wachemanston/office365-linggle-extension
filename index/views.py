@@ -11,6 +11,7 @@ LINGGLE_BASED_URL = 'https://linggle.com'
 WRITEAHEAD_API_URL = 'http://www.writeahead.org/add?text={}'
 EMAILPRO_API_URL = 'http://lost.nlpweb.org:3440/api/mix/{}'
 linggle_symbol = '_~?*/.'
+COOKIE_SHOW_MORE = 'show_more'
 
 
 def index(request):
@@ -152,7 +153,11 @@ def linggleit(request, query):
 
 
 def writeaheadit(request, query):
-    r = requests.get(WRITEAHEAD_API_URL.format(query), headers={'Cookie': 'show_more_exp=true'})
+    query, *params = query.split('&')
+    params = [(param.split('=')) for param in params]
+    params = {k: v for k, v in params}
+    show_more = params[COOKIE_SHOW_MORE] if COOKIE_SHOW_MORE in params else 'false'
+    r = requests.get(WRITEAHEAD_API_URL.format(query), headers={'Cookie': f'show_more_exp=true;show_more={show_more}'})
     dict_data = parse_writeahead_result(re.sub('\t', '', r.text))
     json_data = json.dumps(dict_data)
     return HttpResponse(content=json_data, status=r.status_code)
