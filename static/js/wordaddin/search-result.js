@@ -1,4 +1,5 @@
 import SearchBar from './search-bar';
+import Spinner from "./spinner";
 
 const SearchResult = {
     query: (query) => {
@@ -39,6 +40,7 @@ const SearchResult = {
     },
 
     renderSearchResult: (data) => {
+        Spinner.hide();
         const searchResult = $('.linggle.search-result');
         if (Object.keys(data).length === 0) {
             searchResult.html('<div class="container"><h3>No result</h3></div>');
