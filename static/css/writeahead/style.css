@@ -244,7 +244,40 @@ h2              { font-size: 1.2em; }
     color: #000;
 }
 
+.nav-bar-container {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0 0.25rem;
+    border-top: 1px solid #ccc;
+}
+
+.nav-bar-toggle-label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.nav-bar-menu {
+    height: 0;
+    transition: all .3s;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#nav-bar-toggle:checked ~ .nav-bar-menu {
+    height: 6rem;
+    opacity: 1;
+}
+
+.nav-bar-container .ms-Icon--ChevronUp {
+    transition: all .3s;
+    transform-origin: center;
+}
+
+input[type=checkbox]:checked ~ label .ms-Icon--ChevronUp {
+    transform: rotateZ(180deg);
+}
+
 .nav-item-container {
+    padding-left: calc(1/6 * 100%);
     line-height: 2rem;
     border-radius: 0.25rem;
 }
@@ -305,8 +338,8 @@ h2              { font-size: 1.2em; }
     display: flex;
     -webkit-flex-wrap: nowrap;
     flex-wrap: nowrap;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
     -webkit-align-items: center;
     align-items: center;
     cursor: pointer;
@@ -330,7 +363,7 @@ h2              { font-size: 1.2em; }
 }
 
 #query-text h2 {
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .query-item {

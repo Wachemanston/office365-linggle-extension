@@ -2,9 +2,9 @@
 const NavToggleItem = ({ title, onValue, offValue, token }) => {
     const id = `nav-item-${token}`;
     return `<div class="ms-Grid-row nav-item-container">
-                <span class="ms-Grid-col ms-sm3 nav-item-title ms-hiddenMdUp">${title}</span>
+                <span class="ms-Grid-col ms-sm6 nav-item-title ms-hiddenMdUp">${title}</span>
                 <input type="checkbox" class="ms-hiddenSm nav-item-toggle" id="${id}">
-                <label for="${id}" class="ms-Grid-col ms-sm9 ms-hiddenMdUp nav-item-toggle-label">
+                <label for="${id}" class="ms-Grid-col ms-sm6 ms-hiddenMdUp nav-item-toggle-label">
                     <div class="nav-item-toggle-circle-container">
                         <div class="nav-item-toggle-circle"></div>
                     </div>
@@ -48,7 +48,14 @@ const NavBar = {
         this.registeredBindings.forEach(bindFunc => bindFunc());
     },
     render() {
-        this.container.html(this.items.map(item => NavToggleItem(item)).join(''));
+        this.container.html(`<div class="ms-Grid nav-bar-container">
+                                <input type="checkbox" style="display: none" id="nav-bar-toggle">
+                                <label for="nav-bar-toggle" class="ms-Grid-row ms-font-l nav-bar-toggle-label">
+                                    <span class="ms-Grid-col ms-sm2 ms-Button-icon"><i class="ms-Icon ms-Icon--ChevronUp"></i></span>
+                                    <span class="ms-Grid-col ms-sm10">Filter</span>
+                                </label>
+                                <div class="ms-Grid nav-bar-menu">${this.items.map(item => NavToggleItem(item)).join('')}</div>
+                            `);
         this.rebind();
     },
 };
