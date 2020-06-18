@@ -1,3 +1,5 @@
+import DetailPage from './detail-page';
+
 const EDIT_MODES = {
     WRITE: 'gp',
     EDIT: 'sgp',
@@ -7,7 +9,7 @@ const Badge = ({ count, type }) => {
     return `<div class="ms-font-xxl ms-depth-8 badge" data-type="${type}">${type}<span class="ms-depth-8 ms-font-s">${count}</span></div>`;
 };
 
-const Examples = (examples) => {
+export const Examples = (examples) => {
     return examples.map((example) => {
         const { prev, main, post, c1, c2, translate } = example;
         return `<li class="ms-font-m example-container">\
@@ -41,7 +43,9 @@ const Ngram = ({ ngram, count, examples, idx }) => {
                     <div class="ms-Grid-col ms-sm9 ms-lg10">
                         <div class="ngram-title-container">
                             <h2 class="ms-fontWeight-semibold ms-fontSize-l ff-primary">${title}</h2>
-                            <span class="ms-Button ms-Button--hero"><i class="ms-Button-icon ms-Icon ms-Icon--MiniExpand"></i></span>
+                            <span class="ms-Button ms-Button--hero">
+                                <i data-detail="${ngram}" class="ms-Button-icon ms-Icon ms-Icon--MiniExpand"></i>
+                            </span>
                         </div>
                         ${examplesContainer}
                     </div>
@@ -84,6 +88,17 @@ const SearchResult = {
             idx += 1;
         });
     },
+    bindEvents() {
+        const data = this.data[this.editMode];
+        $('.ngram-title-container i').click((e) => {
+            const ngram = e.target.getAttribute('data-detail');
+            console.log(data[ngram])
+            DetailPage.open({
+                ...data[ngram],
+                ngram,
+            });
+        });
+    },
     setContainer(container) { this.container = container; },
     render() {
         if (this.HTMLData.length && this.container) {
@@ -91,6 +106,7 @@ const SearchResult = {
             if (this.showMoreExamples) {
                 this.toggleMoreExamples(true);
             }
+            this.bindEvents();
         }
     },
 };

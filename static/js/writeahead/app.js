@@ -5,6 +5,7 @@
 import SearResult from './search-result';
 import Query from './query';
 import NavBar from './navbar';
+import DetailPage from './detail-page';
 
 'use strict';
 
@@ -43,6 +44,7 @@ import NavBar from './navbar';
                     handleToggle: SearResult.toggleEditingMode.bind(SearResult),
                 }
             ]);
+            DetailPage.setContainer($('#detail-page-container'));
         });
     };
 
